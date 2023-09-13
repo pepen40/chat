@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пример чата с собственными смайликами (jpg)</title>
+    <style>
+        /* Стили для изменения размера изображения смайлика */
+        img.smiley {
+            width: 24px; /* Установите желаемую ширину смайлика */
+            height: 24px; /* Установите желаемую высоту смайлика */
+            vertical-align: middle; /* Чтобы изображение выравнивалось по вертикали с текстом */
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать в чат pepen40!</h1>
+    
+    <!-- Добавьте окно чата с сообщениями здесь -->
+    <div id="chat-window" style="border: 1px solid #000; height: 300px; overflow-y: scroll;"></div>
+    
+    <!-- Поле для ввода имени и сообщения -->
+    <input type="text" id="name" placeholder="Введите ваше имя">
+    <input type="text" id="message" placeholder="Введите ваше сообщение">
+    <button onclick="sendMessage()">Отправить</button>
+
+    <script>
+        // Функция для отправки сообщения с собственными смайликами
+        function sendMessage() {
+            var name = document.getElementById('name').value;
+            var message = document.getElementById('message').value;
+            if (name.trim() !== '' && message.trim() !== '') {
+                var chatWindow = document.getElementById('chat-window');
+                
+                // Заменяем коды смайликов на изображения с расширением jpg с классом "smiley"
+                message = message.replace(/:apostol:/g, '<img src="apostol.jpg" alt=":apostol:" class="smiley" />');
+                
+                chatWindow.innerHTML += '<p><strong>' + name + ':</strong> ' + message + '</p>';
+                document.getElementById('name').value = '';
+                document.getElementById('message').value = '';
+                // Здесь вы можете отправить сообщение на сервер или обработать его
+            }
+        }
+    </script>
+</body>
+<br>
+<br>
+привет не пиши бредятину пж
+<br>
+чтобы отправить смайлик apostol пиши сообщение + :apostol:
+</html>
